@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float spawnRate = 1f;
+    public float spawnRate = 0.9f;
 
     public GameObject hexagonPrefab;
 
@@ -17,6 +17,7 @@ public class spawner : MonoBehaviour
         if(Time.time >= nextTimeToSpawn)
         {
             Instantiate(hexagonPrefab, Vector3.zero, Quaternion.identity);
+            nextTimeToSpawn = Time.time + 1f / spawnRate;
         }
     }
 }
